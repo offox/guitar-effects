@@ -20,7 +20,7 @@ wire [31:0] 	out_ ;
 reg  			ready_to_read_;		
 
 distortion distortion_inst(
-	.aclr( reset ),
+	.aclr( ! reset ),
 	.clk( clk ),
 	.bypass( distortion_bypass_ ),
 	.distortion_gain( distortion_gain_ ),
@@ -151,7 +151,7 @@ always@(posedge clk or negedge reset or posedge distortion_ready_to_read_)
 			end
 			S3:
 			begin           
-				if (ready_to_read_ > 0)
+				if ( ready_to_read_ > 0)
 				begin
 					loc_ramclk <= 'b0;           
 					loc_ramaddress <= ADD_OUTPUT; 
