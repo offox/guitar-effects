@@ -1,0 +1,7 @@
+
+
+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/altfp_mult.v
+
+May 17 06AM:57:11>: Variation file name (altfp_mult) is identical with the name of one of its sub-components.
+
+MegaWizard Plug-In Manager will rename the variation to "altfp_mula" to prevent compilation errors

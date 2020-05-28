@@ -42,8 +42,6 @@ set_global_assignment -name TOP_LEVEL_ENTITY guitar_effect
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:41:47  MAY 13, 2020"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
-set_global_assignment -name VERILOG_FILE ghrd.v
-set_global_assignment -name VERILOG_FILE delay.v
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 125
@@ -51,10 +49,6 @@ set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VERILOG_FILE guitar_effects.v
-set_global_assignment -name QIP_FILE lpm_add_ge.qip
-set_global_assignment -name QIP_FILE lpm_mult_ge.qip
-set_global_assignment -name QIP_FILE lpm_divide_ge.qip
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
@@ -65,5 +59,20 @@ set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH delay_tb -secti
 set_global_assignment -name EDA_TEST_BENCH_NAME delay_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id delay_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME delay_tb -section_id delay_tb
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_FILE delay_tb.v -section_id delay_tb
+set_global_assignment -name VERILOG_FILE ghrd.v
+set_global_assignment -name VERILOG_FILE delay.v
+set_global_assignment -name VERILOG_FILE guitar_effects.v
+set_global_assignment -name QIP_FILE lpm_add_ge.qip
+set_global_assignment -name QIP_FILE lpm_mult_ge.qip
+set_global_assignment -name QIP_FILE lpm_divide_ge.qip
+set_global_assignment -name VERILOG_FILE distortion.v
+set_global_assignment -name QIP_FILE altfp_exp_ge.qip
+set_global_assignment -name QIP_FILE altfp_conv_float_to_int_ge.qip
+set_global_assignment -name QIP_FILE altfp_conv_int_to_float_ge.qip
+set_global_assignment -name QIP_FILE ram_port_2_ge_tb.qip
+set_global_assignment -name QIP_FILE altfp_mult.qip
+set_global_assignment -name QIP_FILE altfp_mult_ge.qip
+set_global_assignment -name QIP_FILE altp_sub_ge.qip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name QIP_FILE fifo_ge.qip

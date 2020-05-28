@@ -1,0 +1,73 @@
+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/altp_sub_ge.v {1 {vlog -work work -stats=none C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/altp_sub_ge.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module altp_sub_ge_altbarrel_shift_ltd
+-- Compiling module altp_sub_ge_altbarrel_shift_aeb
+-- Compiling module altp_sub_ge_altpriority_encoder_3e8
+-- Compiling module altp_sub_ge_altpriority_encoder_6e8
+-- Compiling module altp_sub_ge_altpriority_encoder_be8
+-- Compiling module altp_sub_ge_altpriority_encoder_3v7
+-- Compiling module altp_sub_ge_altpriority_encoder_6v7
+-- Compiling module altp_sub_ge_altpriority_encoder_bv7
+-- Compiling module altp_sub_ge_altpriority_encoder_r08
+-- Compiling module altp_sub_ge_altpriority_encoder_rf8
+-- Compiling module altp_sub_ge_altpriority_encoder_qb6
+-- Compiling module altp_sub_ge_altpriority_encoder_nh8
+-- Compiling module altp_sub_ge_altpriority_encoder_qh8
+-- Compiling module altp_sub_ge_altpriority_encoder_vh8
+-- Compiling module altp_sub_ge_altpriority_encoder_fj8
+-- Compiling module altp_sub_ge_altpriority_encoder_n28
+-- Compiling module altp_sub_ge_altpriority_encoder_q28
+-- Compiling module altp_sub_ge_altpriority_encoder_v28
+-- Compiling module altp_sub_ge_altpriority_encoder_f48
+-- Compiling module altp_sub_ge_altpriority_encoder_e48
+-- Compiling module altp_sub_ge_altfp_add_sub_qcj
+-- Compiling module altp_sub_ge
+
+Top level modules:
+	altp_sub_ge
+
+} {} {}} C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/ram_port_2.v {1 {vlog -work work -stats=none C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/ram_port_2.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ram_port_2
+
+Top level modules:
+	ram_port_2
+
+} {} {}} C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/guitar_effect_tb.v {1 {vlog -work work -stats=none C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/guitar_effect_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module guitar_effect_tb
+
+Top level modules:
+	guitar_effect_tb
+
+} {} {}} C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/altfp_exp_ge.v {1 {vlog -work work -stats=none C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/altfp_exp_ge.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module altfp_exp_ge_altfp_exp_7tc
+-- Compiling module altfp_exp_ge
+
+Top level modules:
+	altfp_exp_ge
+
+} {} {}} C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/altfp_mult_ge.v {1 {vlog -work work -stats=none C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/altfp_mult_ge.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module altfp_mult_ge_altfp_mult_h2o
+-- Compiling module altfp_mult_ge
+
+Top level modules:
+	altfp_mult_ge
+
+} {} {}} C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/distortion.v {1 {vlog -work work -stats=none C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/distortion.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module distortion
+
+Top level modules:
+	distortion
+
+} {} {}} C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/distortion_tb.v {1 {vlog -work work -stats=none C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/distortion_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module distorcion_tb
+
+Top level modules:
+	distorcion_tb
+
+} {} {}}

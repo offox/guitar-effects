@@ -1,0 +1,270 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do guitar_effect_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect {C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:34:40 on May 16,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect" C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v 
+# -- Compiling module delay
+# 
+# Top level modules:
+# 	delay
+# End time: 16:34:41 on May 16,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect {C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/guitar_effects.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:34:41 on May 16,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect" C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/guitar_effects.v 
+# -- Compiling module guitar_effect
+# 
+# Top level modules:
+# 	guitar_effect
+# End time: 16:34:41 on May 16,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect {C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_add_ge.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:34:42 on May 16,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect" C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_add_ge.v 
+# -- Compiling module lpm_add_ge
+# 
+# Top level modules:
+# 	lpm_add_ge
+# End time: 16:34:42 on May 16,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect {C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_mult_ge.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:34:42 on May 16,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect" C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_mult_ge.v 
+# -- Compiling module lpm_mult_ge
+# 
+# Top level modules:
+# 	lpm_mult_ge
+# End time: 16:34:42 on May 16,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect {C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:34:43 on May 16,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect" C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v 
+# -- Compiling module lpm_divide_ge
+# 
+# Top level modules:
+# 	lpm_divide_ge
+# End time: 16:34:43 on May 16,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect {C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:34:43 on May 16,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect" C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay_tb.v 
+# ** Error: (vlog-13069) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay_tb.v(1): near "delay_inst": syntax error, unexpected IDENTIFIER.
+# ** Error: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay_tb.v(1): (vlog-13205) Syntax error found in the scope following 'delay'. Is there a missing '::'?
+# End time: 16:34:43 on May 16,2020, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: C:/intelFPGA/18.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./guitar_effect_run_msim_rtl_verilog.do line 14
+# C:/intelFPGA/18.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -vlog01compat -work work +incdir+C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect {C:/Users/oswal/Documents/heter..."
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+wave create -pattern none -portmode input -language vlog /delay/clk
+# Editable Wave items are not compatible with the wave window's standard undo-redo.  Standard undo-redo has been disabled.
+# delay
+wave create -pattern none -portmode input -language vlog /delay/reset
+# delay
+wave create -pattern none -portmode input -language vlog /delay/bypass
+# delay
+wave create -pattern none -portmode input -language vlog -range 4 0 /delay/delay_gain
+# delay
+wave create -pattern none -portmode input -language vlog -range 31 0 /delay/delay_time
+# delay
+wave create -pattern none -portmode input -language vlog -range 31 0 /delay/delay_repeat_times
+# delay
+wave create -pattern none -portmode input -language vlog -range 31 0 /delay/input_n
+# delay
+wave create -pattern none -portmode input -language vlog -range 14 0 /delay/first_address
+# delay
+wave create -pattern none -portmode input -language vlog -range 14 0 /delay/last_address
+# delay
+wave create -pattern none -portmode input -language vlog -range 14 0 /delay/input_address
+# delay
+wave create -pattern none -portmode output -language vlog -range 31 0 /delay/out
+# delay
+force -freeze NewSig:/delay/clk 1 0, 0 {50 ns} -r 100
+# Error while executing: force
+# Usage: force <object_name> {<value> [[@]<time_info>][, <value> [[@]<time_info>]...} [-freeze | -drive | -deposit] [-cancel [@]<time_info>] [-repeat [@]<time_info>]
+wave modify -driver freeze -pattern clock -initialvalue (no value) -period 100ns -dutycycle 50 -starttime 0ns -endtime 1000ns NewSig:/delay/clk
+# delay
+wave modify -driver freeze -pattern clock -initialvalue StX -period 100ns -dutycycle 50 -starttime 0ns -endtime 3000ns NewSig:/delay/clk
+# delay
+wave modify -driver freeze -pattern constant -value 1 -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern random -initialvalue 1 -period 50ns -random_type Uniform -seed 5 -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern constant -value 1 -range 4 0 -starttime 0ns -endtime 1000ns NewSig:/delay/delay_gain
+# delay
+wave modify -driver freeze -pattern constant -value 0 -starttime 0ns -endtime 3000ns NewSig:/delay/bypass
+# delay
+wave modify -driver freeze -pattern counter -startvalue 0 -endvalue 1 -type Range -direction Up -period 100ns -step 1 -repeat forever -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern counter -startvalue St0 -endvalue St1 -type Range -direction Up -period 100ns -step 1 -repeat never -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern counter -startvalue St0 -endvalue St1 -type Range -direction Up -period 3000ns -step 1 -repeat never -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern counter -startvalue St0 -endvalue St1 -type Range -direction Up -period 3000ns -step 1 -repeat 1 -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern repeater -initialvalue 1 -period 50ns -sequence { 0  } -repeat never -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern repeater -initialvalue St1 -period 3000ns -sequence { St0  } -repeat never -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern repeater -initialvalue St1 -period 50ns -sequence { St0  } -repeat forever -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern counter -startvalue 1 -endvalue 0 -type Range -direction Up -period 50ns -step 30 -repeat forever -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# In Range Up Counter: Start value cannot be greater than End value
+wave modify -driver freeze -pattern repeater -initialvalue 1 -period 50ns -sequence { 0  } -repeat forever -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern repeater -initialvalue St1 -period 50ns -sequence { St0  } -repeat never -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern repeater -initialvalue St1 -period 50ns -sequence { St0  } -repeat 30 -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern repeater -initialvalue 1 -period 50ns -sequence { 0  } -repeat forever -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+noforce NewSig:/delay/reset
+# Error while executing: noforce
+# Usage: noforce <object_name> ...
+wave modify -driver freeze -pattern counter -startvalue 1 -endvalue 0 -type Range -direction Up -period 50ns -step 1 -repeat forever -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# In Range Up Counter: Start value cannot be greater than End value
+wave modify -driver freeze -pattern counter -startvalue St1 -endvalue St0 -type Range -direction Up -period 50ns -step 30 -repeat forever -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# In Range Up Counter: Start value cannot be greater than End value
+wave modify -driver freeze -pattern counter -startvalue 0 -endvalue 1 -type Range -direction Up -period 50ns -step 1 -repeat forever -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern counter -startvalue St0 -endvalue St1 -type Range -direction Up -period 50ns -step 30 -repeat forever -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+wave modify -driver freeze -pattern counter -startvalue St0 -endvalue St1 -type Range -direction Up -period 50ns -step 5 -repeat forever -starttime 0ns -endtime 3000ns NewSig:/delay/reset
+# delay
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/wave.do
+wave editwrite -file C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/wave.do -append
+wave modify -driver freeze -pattern constant -value 00001 -range 4 0 -starttime 0ns -endtime 3000ns NewSig:/delay/delay_gain
+# delay
+wave modify -driver freeze -pattern constant -value 1 -range 31 0 -starttime 0ns -endtime 3000ns NewSig:/delay/delay_time
+# delay
+wave modify -driver freeze -pattern constant -value 1 -range 31 0 -starttime 0ns -endtime 3000ns NewSig:/delay/delay_repeat_times
+# delay
+wave modify -driver freeze -pattern constant -value 1000 -range 31 0 -starttime 0ns -endtime 1000ns NewSig:/delay/input_n
+# delay
+wave modify -driver freeze -pattern constant -value 1000 -range 31 0 -starttime 0ns -endtime 3000ns NewSig:/delay/input_n
+# delay
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/wave.do
+wave editwrite -file C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/wave.do -append
+# Load canceled
+vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult lpm_ver
+# vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult lpm_ver 
+# Start time: 16:57:53 on May 16,2020
+# Loading work.delay
+# Loading work.lpm_divide_ge
+# Loading lpm_ver.lpm_divide
+# Loading lpm_ver.LPM_HINT_EVALUATION
+# Loading work.lpm_mult_ge
+# Loading lpm_ver.lpm_mult
+# Loading work.lpm_add_ge
+# Loading lpm_ver.lpm_add_sub
+# ** Error: (vsim-3170) Could not find 'lpm_ver'.
+#         Searched libraries:
+#             C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/rtl_work
+#             C:/intelFPGA/18.1/modelsim_ase/altera/verilog/220model
+# Error loading design
+# End time: 16:57:56 on May 16,2020, Elapsed time: 0:00:03
+# Errors: 1, Warnings: 0
+vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult 
+# vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult 
+# Start time: 16:58:10 on May 16,2020
+# Loading work.delay
+# Loading work.lpm_divide_ge
+# Loading lpm_ver.lpm_divide
+# Loading lpm_ver.LPM_HINT_EVALUATION
+# Loading work.lpm_mult_ge
+# Loading lpm_ver.lpm_mult
+# Loading work.lpm_add_ge
+# Loading lpm_ver.lpm_add_sub
+# ** Warning: (vsim-3015) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v(86): [PCDPC] - Port size (4) does not match connection size (16) for port 'denom'. The port definition is at: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /delay/lpm_divide_ge_inst_n_1 File: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v
+# ** Warning: (vsim-3015) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v(86): [PCDPC] - Port size (16) does not match connection size (32) for port 'numer'. The port definition is at: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /delay/lpm_divide_ge_inst_n_1 File: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v
+# ** Warning: (vsim-3015) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v(93): [PCDPC] - Port size (3) does not match connection size (16) for port 'dataa'. The port definition is at: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_mult_ge.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /delay/lpm_mult_ge_inst_n_1_1 File: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_mult_ge.v
+# ** Warning: (vsim-3015) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v(93): [PCDPC] - Port size (16) does not match connection size (5) for port 'datab'. The port definition is at: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_mult_ge.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /delay/lpm_mult_ge_inst_n_1_1 File: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_mult_ge.v
+# ** Warning: (vsim-3015) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v(100): [PCDPC] - Port size (16) does not match connection size (32) for port 'dataa'. The port definition is at: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_add_ge.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /delay/lpm_add_ge_inst_n_1 File: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_add_ge.v
+# ** Warning: (vsim-3015) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v(107): [PCDPC] - Port size (4) does not match connection size (16) for port 'denom'. The port definition is at: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /delay/lpm_divide_ge_inst_n_2 File: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v
+# ** Warning: (vsim-3015) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v(107): [PCDPC] - Port size (16) does not match connection size (32) for port 'numer'. The port definition is at: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /delay/lpm_divide_ge_inst_n_2 File: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v
+# ** Warning: (vsim-3015) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v(114): [PCDPC] - Port size (3) does not match connection size (16) for port 'dataa'. The port definition is at: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_mult_ge.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /delay/lpm_mult_ge_inst_n_1_2 File: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_mult_ge.v
+# ** Warning: (vsim-3015) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v(128): [PCDPC] - Port size (4) does not match connection size (16) for port 'denom'. The port definition is at: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /delay/lpm_divide_ge_inst_n_3 File: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v
+# ** Warning: (vsim-3015) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v(128): [PCDPC] - Port size (16) does not match connection size (32) for port 'numer'. The port definition is at: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /delay/lpm_divide_ge_inst_n_3 File: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_divide_ge.v
+# ** Warning: (vsim-3015) C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/delay.v(135): [PCDPC] - Port size (3) does not match connection size (16) for port 'dataa'. The port definition is at: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_mult_ge.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /delay/lpm_mult_ge_inst_n_1_3 File: C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/lpm_mult_ge.v
+step
+step -over
+run -continue
+run -continue
+run -all
+vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult delay_tb.v
+# End time: 17:03:29 on May 16,2020, Elapsed time: 0:05:19
+# Errors: 0, Warnings: 11
+# vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult delay_tb.v 
+# Start time: 17:03:29 on May 16,2020
+# ** Error (suppressible): (vsim-19) Failed to access library 'delay_tb' at "delay_tb".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+# End time: 17:03:32 on May 16,2020, Elapsed time: 0:00:03
+# Errors: 1, Warnings: 0
+vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult delay_tb
+# vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult delay_tb 
+# Start time: 17:03:35 on May 16,2020
+# Loading work.delay
+# Loading work.lpm_divide_ge
+# Loading lpm_ver.lpm_divide
+# Loading lpm_ver.LPM_HINT_EVALUATION
+# Loading work.lpm_mult_ge
+# Loading lpm_ver.lpm_mult
+# Loading work.lpm_add_ge
+# Loading lpm_ver.lpm_add_sub
+# ** Error: (vsim-3170) Could not find 'delay_tb'.
+#         Searched libraries:
+#             C:/Users/oswal/Documents/heterogeneus-computation/quartus-projects/guitar_effect/simulation/modelsim/rtl_work
+#             C:/intelFPGA/18.1/modelsim_ase/altera/verilog/220model
+# Error loading design
+# End time: 17:03:36 on May 16,2020, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult -t lps delay_tb
+# ** Error: (vsim-3000) Invalid resolution limit (-t lps).
+# Use the -help option for complete vsim usage.
+# vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult delay_tb -t lps 
+# Error loading design
+# Errors: 1, Warnings: 0
+vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult -t lps delay_tb
+# ** Error: (vsim-3000) Invalid resolution limit (-t lps).
+# Use the -help option for complete vsim usage.
+# vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult delay_tb -t lps 
+# Error loading design
+# Errors: 1, Warnings: 0
+vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult -t lps delay_tb
+# ** Error: (vsim-3000) Invalid resolution limit (-t lps).
+# Use the -help option for complete vsim usage.
+# vsim -gui -l msim_transcript work.delay lpm_ver.lpm_add_sub lpm_ver.lpm_mult delay_tb -t lps 
+# Error loading design
+# Errors: 1, Warnings: 0
+# Loading project modelsim-project-test
