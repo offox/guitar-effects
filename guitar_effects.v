@@ -2,24 +2,26 @@ module guitar_effect (
 	input 	clk,
 	input   clk_500, 
 	input 	reset,
-	input		[31:0] 	avl_readdata,
-	output  reg	[31:0] 	avl_writedata,
-	output 	reg	[4:0]	avl_address,            
-	output	reg	avl_read,              
-	output  reg     avl_write
+	output  reg	[31:0] 	avl_readdata,
+	input 		[31:0] 	avl_writedata,
+	input 		[4:0]	avl_address,            
+	input			avl_read,              
+	input           avl_write
 );
 
 reg  [31:0] 	status;
 reg  [31:0] 	distortion_gain_;
 reg  [31:0] 	distortion_boost_;
 wire  [31:0] 	input_;
-reg  		ready_to_read_;
+reg  			ready_to_read_;
 wire [31:0] 	out_ ;
 wire   	        wrfull_input, wrfull_output;
 wire		rdempty_input, rdempty_outpout;	
 reg 		rdclk_input, rdenabled_input;
 reg			wrclk_output, wrenabled_output;
 reg			wrenabled, rdenabled;
+
+wire [31:0] readdata = avl_readdata;
 
 fifo_ge	fifo_ge_input (
 	.data ( avl_writedata ),
@@ -38,7 +40,7 @@ fifo_ge	fifo_ge_output (
 	.rdreq ( rdenabled ),
 	.wrclk ( wrclk_output ),
 	.wrreq ( wrenabled_output ),
-	.q ( avl_readdata ),
+	.q ( readdata ),
 	.rdempty ( rdempty_output ),
 	.wrfull ( wrfull_output )
 	);
@@ -66,22 +68,27 @@ parameter [5:0] S0=5'd0, S1=5'd1, S2=5'd2, S3=5'd3, S4=5'd4, S5=5'd5;
 reg [3:0] stt;
 
 
-always@(negedge clk or posedge avl_read or posedge avl_write)
+always@(negedge clk or negedge reset or posedge avl_read or posedge avl_write)
 begin
 	if ( clk == 'b0 )
 	begin
 		wrenabled <= 'b0;
 		rdenabled <= 'b0;
 	end
-	else if ( avl_read == 'b1 )
+	if ( reset == 'b0 )
+	begin
+		distortion_gain_ <= 'b0;
+		distortion_boost_ <= 'b0;
+	end
+	else if ( avl_write == 'b1 )
 	begin
 		if ( avl_address == ADD_DISTORTION_GAIN ) 
 		begin
-			distortion_gain_ <= avl_readdata;
+			distortion_gain_ <= avl_writedata;
 		end 
 		else if ( avl_address == ADD_DISTORTION_BOOST )
 		begin
-			distortion_boost_ <= avl_readdata;
+			distortion_boost_ <= avl_writedata;
 		end
 		else if ( avl_address == ADD_OUTPUT )
 		begin
@@ -96,11 +103,11 @@ begin
 			end
 		end
 	end
-	else if ( avl_write == 'b1 )
+	else if ( avl_read == 'b1 )
 	begin
 		if ( avl_address == ADD_STATUS) 
 		begin
-			avl_writedata <= status;
+			avl_readdata <= status;
 		end 
 		else if ( avl_address == ADD_OUTPUT )
 		begin
@@ -155,7 +162,7 @@ always@(posedge clk_500)
 			S2:
 			begin
 				rdclk_input <= 'b1;
-				rdenabled_input <= 'b0;            
+				rdenabled_input <= 'b0; 
 				stt <= S3;
 			end
 			S3:
