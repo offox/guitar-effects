@@ -16,7 +16,7 @@ wire  [31:0] 	input_;
 reg  			ready_to_read_;
 wire [31:0] 	out_ ;
 wire   	        wrfull_input, wrfull_output;
-wire		rdempty_input, rdempty_outpout;	
+wire		rdempty_input, rdempty_output;	
 reg 		rdclk_input, rdenabled_input;
 reg			wrclk_output, wrenabled_output;
 reg			wrenabled, rdenabled;
@@ -77,6 +77,7 @@ begin
 	end
 	if ( reset == 'b0 )
 	begin
+		status <= 5'b00000;
 		distortion_gain_ <= 'b0;
 		distortion_boost_ <= 'b0;
 	end
@@ -143,7 +144,7 @@ always@(posedge clk_500)
 	 begin
 		 case(stt)
 			S0:
-			begin   
+			begin
 				if ( ! rdempty_input )
 				begin
 					rdclk_input <= 'b0;
@@ -157,7 +158,7 @@ always@(posedge clk_500)
 			end
 			S1:
 			begin
-				stt <= S2;
+				stt <= S3;
 			end
 			S2:
 			begin
@@ -180,7 +181,7 @@ always@(posedge clk_500)
 			end
 			S4:
 			begin
-				stt <= S5;
+				stt <= S0;
 			end
 			S5:
 			begin           
