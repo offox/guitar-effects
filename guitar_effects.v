@@ -14,12 +14,13 @@ reg  [31:0] 	status;
 reg  [31:0] 	distortion_gain_;
 reg  [31:0] 	distortion_boost_;
 reg  [31:0] 	input_;
+reg  		ready_to_read_;
 wire [31:0] 	out_ ;
-wire 	        wrfull_input, wrfull_output, 
-wire		rdempty_input, rdempty_outpout;	
-wire		rdreq_input, wrreq_output;
-wire 		rdclk_input, rdenabled_input;
-wire 		wrclk_output, wrenabled_output;
+reg   	        wrfull_input, wrfull_output;
+reg		rdempty_input, rdempty_outpout;	
+reg		rdreq_input, wrreq_output;
+reg 		rdclk_input, rdenabled_input;
+reg		wrclk_output, wrenabled_output;
 
 fifo_ge	fifo_ge_input (
 	.data ( avl_writedata ),
@@ -61,33 +62,33 @@ parameter ADD_STATUS				= 5'b00011;
 parameter ADD_OUTPUT				= 5'b00101;
 parameter ADD_INPUT				= 5'b00110;
 
-parameter [5:0] S0=5'd0, S0A=5'd1, S0B=5'd2, S0C=5'd3, S0D=5'd4, S0E=5'd5, S0F=5'd6, S0G=5'd7, S0H=5'd8, S0I=5'd9, S1=5'd10, S1A=5'd11, S2=5'd12, S2A=5'd13, S3=5'd14, S3A=5'd15, S3B=5'd16, S3C=5'd17, S3D=5'd18, S4=5'd19, S4A=5'd20, S5=5'd21, S5A=5'd22;
+parameter [5:0] S0=5'd0, S1=5'd1, S2=5'd2, S3=5'd3, S4=5'd4;
 
-reg [5:0] avl_sst;
+reg [5:0] stt;
 
 
 always@(negedge clk or posedge avl_read or posedge avl_write)
 begin
 	if ( clk == 'b0 )
 	begin
-		wrenabled <= 'b0;
-		rdenabled <= 'b0;
+		wrenabled_output <= 'b0;
+		rdenabled_input <= 'b0;
 	end
-	else if ( alv_read == 'b1 )
+	else if ( avl_read == 'b1 )
 	begin
-		if ( alv_address == ADD_DISTORTION_GAIN ) 
+		if ( avl_address == ADD_DISTORTION_GAIN ) 
 		begin
 			distortion_gain_ <= avl_readdata;
 		end 
-		else if ( alv_address == ADD_DISTORTION_BOOST )
+		else if ( avl_address == ADD_DISTORTION_BOOST )
 		begin
 			distortion_boost_ <= avl_readdata;
 		end
-		else if ( alv_address == ADD_OUTPUT )
+		else if ( avl_address == ADD_OUTPUT )
 		begin
 			if ( ! wrfull_input )
 			begin
-				wrenabled <= 'b1;
+				wrenabled_output <= 'b1;
 				status <= status & 5'b01111;
 			end	
 			else
@@ -96,17 +97,17 @@ begin
 			end
 		end
 	end
-	else if ( alv_write == 'b1 )
+	else if ( avl_write == 'b1 )
 	begin
-		if ( alv_address == ADD_STATUS) 
+		if ( avl_address == ADD_STATUS) 
 		begin
-			alv_writedata <= status;
+			avl_writedata <= status;
 		end 
-		else if ( alv_address == ADD_OUTPUT )
+		else if ( avl_address == ADD_OUTPUT )
 		begin
 			if ( ! rdempty_output )
 			begin
-				rdenabled <= 'b1; 
+				rdenabled_input <= 'b1; 
 				status <= status & 5'b10111;
 			end
 			else
@@ -118,7 +119,7 @@ begin
 		
 end
 
-always@(posedge clk500)
+always@(posedge clk_500)
   begin
 	if (distortion_ready_to_read_ == 'b1)
 	begin
@@ -129,7 +130,7 @@ always@(posedge clk500)
 		stt <= S0;
 		rdclk_input <= 'b0;
 		rdenabled_input <= 'b0;
-		wdclk_output <= 'b0;
+		wrclk_output <= 'b0;
 		wrenabled_output <= 'b0;
 	 end 
 	 else
