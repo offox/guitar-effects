@@ -62,9 +62,9 @@ parameter ADD_STATUS				= 5'b00011;
 parameter ADD_OUTPUT				= 5'b00101;
 parameter ADD_INPUT				= 5'b00110;
 
-parameter [5:0] S0=5'd0, S1=5'd1, S2=5'd2, S3=5'd3, S4=5'd4;
+parameter [5:0] S0=5'd0, S1=5'd1, S2=5'd2, S3=5'd3, S4=5'd4, S5=5'd5;
 
-reg [5:0] stt;
+reg [3:0] stt;
 
 
 always@(negedge clk or posedge avl_read or posedge avl_write)
@@ -137,35 +137,46 @@ always@(posedge clk_500)
 	 begin
 		 case(stt)
 			S0:
-			begin
-				rdclk_input <= 'b0;
-				rdenabled_input <= 'b1;            
-				stt <= S1;
+			begin   
+				if ( ! rdempty_input )
+				begin
+					rdclk_input <= 'b0;
+					rdenabled_input <= 'b1;            
+					stt <= S2;
+				end
+				else
+				begin
+					stt <= S1;
+				end
 			end
 			S1:
 			begin
-				rdclk_input <= 'b1;
-				rdenabled_input <= 'b0;            
 				stt <= S2;
 			end
 			S2:
+			begin
+				rdclk_input <= 'b1;
+				rdenabled_input <= 'b0;            
+				stt <= S3;
+			end
+			S3:
 			begin
 				if ( ready_to_read_ > 0)
 				begin
 					wrclk_output <= 'b0;
 					wrenabled_output <= 'b1;            
-					stt <= S4;
+					stt <= S5;
 				end
 				else
 				begin
-					stt <= S3;
+					stt <= S4;
 				end
 			end
-			S3:
-			begin
-				stt <= S4;
-			end
 			S4:
+			begin
+				stt <= S5;
+			end
+			S5:
 			begin           
 				wrclk_output <= 'b1;
 				wrenabled_output <= 'b0;            
