@@ -60,17 +60,18 @@ altfp_mult_ge altfp_mult_ge_inst_3 (
 
 always@(posedge clk or posedge aclr)
 begin
-	if (aclr)
+	if (aclr == 'b1)
 	begin
 		calculate_first_value <= 'b1;
 		ready_to_read <= 'b0;
 		count <= 6'b0;
+		out <= 32'd1010;
 	end
 	else
 	begin
-		if (bypass)                  
+		if (bypass == 'b1)                  
 		begin
-			out <= input_ ;
+			//out <= input_ ;
 		end
 		else
 		begin
@@ -84,12 +85,12 @@ begin
 			end
 		end
 		
-		if (calculate_first_value)
+		if (calculate_first_value == 'b1)
 		begin
 		if (count == 6'd47)
 			begin
 				calculate_first_value <= 'b0;
-				out <= result;
+				// out <= result;
 				ready_to_read <= 'b1;
 				count <= 6'b0;
 			end
@@ -102,7 +103,7 @@ begin
 		begin
 			if (count == 6'd8)
 			begin
-				out <= result;
+				// out <= result;
 				ready_to_read <= 'b1;
 				count <= 6'b0;
 			end

@@ -1,23 +1,47 @@
 module guitar_effect (
 	input 	clk,
+	input   clk_500, 
 	input 	reset,
-	input		[31:0] 	loc_readdata,
-	output  reg	[31:0] 	loc_writedata,
-	output 	reg	[4:0]	loc_ramaddress,            
-	output 	reg	loc_ramclk,               
-	output	reg	loc_ramread,              
-	output  reg   loc_ramwrite
+	input		[31:0] 	avl_readdata,
+	output  reg	[31:0] 	avl_writedata,
+	output 	reg	[4:0]	avl_address,            
+	output 	reg	avl_clk,               
+	output	reg	avl_read,              
+	output  reg     avl_write
 );
 
-// reg 			clk_;
-reg 			distortion_bypass_;
+reg  [31:0] 	status;
 reg  [31:0] 	distortion_gain_;
 reg  [31:0] 	distortion_boost_;
 reg  [31:0] 	input_;
-reg  [31:0] 	select_effect_;
-wire  			distortion_ready_to_read_;
 wire [31:0] 	out_ ;
-reg  			ready_to_read_;		
+wire 	        wrfull_input, wrfull_output, 
+wire		rdempty_input, rdempty_outpout;	
+wire		rdreq_input, wrreq_output;
+wire 		rdclk_input, rdenabled_input;
+wire 		wrclk_output, wrenabled_output;
+
+fifo_ge	fifo_ge_input (
+	.data ( avl_writedata ),
+	.rdclk ( rdclk_input ),
+	.rdreq ( rdenabled_input ),
+	.wrclk ( clk ),
+	.wrreq ( wrenabled ),
+	.q ( input_ ),
+	.rdempty ( rdempty_input ),
+	.wrfull ( wrfull_input )
+	);
+
+fifo_ge	fifo_ge_output (
+	.data ( out_ ),
+	.rdclk ( clk ),
+	.rdreq ( avl_output ),
+	.wrclk ( wrclk_output ),
+	.wrreq ( wrenabled_output ),
+	.q ( avl_readdata ),
+	.rdempty ( rdempty_output ),
+	.wrfull ( wrfull_output )
+	);
 
 distortion distortion_inst(
 	.aclr( ! reset ),
@@ -31,19 +55,70 @@ distortion distortion_inst(
 );
 
 
-parameter ADD_SE 					= 5'b00000;
-parameter ADD_DISTORRION_GAIN		= 5'b00001;
-parameter ADD_DISTORRION_BOOST		= 5'b00010;
-parameter ADD_INPUT					= 5'b00011;
-parameter ADD_READ_FINISH			= 5'b00100;
+parameter ADD_DISTORTION_GAIN			= 5'b00001;
+parameter ADD_DISTORTION_BOOST			= 5'b00010;
+parameter ADD_STATUS				= 5'b00011;
 parameter ADD_OUTPUT				= 5'b00101;
-parameter ADD_READY_TO_GET			= 5'b00110;
+parameter ADD_INPUT				= 5'b00110;
 
 parameter [5:0] S0=5'd0, S0A=5'd1, S0B=5'd2, S0C=5'd3, S0D=5'd4, S0E=5'd5, S0F=5'd6, S0G=5'd7, S0H=5'd8, S0I=5'd9, S1=5'd10, S1A=5'd11, S2=5'd12, S2A=5'd13, S3=5'd14, S3A=5'd15, S3B=5'd16, S3C=5'd17, S3D=5'd18, S4=5'd19, S4A=5'd20, S5=5'd21, S5A=5'd22;
 
-reg [5:0] stt;
+reg [5:0] avl_sst;
 
-always@(posedge clk or negedge reset or posedge distortion_ready_to_read_)
+
+always@(negedge clk or posedge avl_read or posedge avl_write)
+begin
+	if ( clk == 'b0 )
+	begin
+		wrenabled <= 'b0;
+		rdenabled <= 'b0;
+	end
+	else if ( alv_read == 'b1 )
+	begin
+		if ( alv_address == ADD_DISTORTION_GAIN ) 
+		begin
+			distortion_gain_ <= avl_readdata;
+		end 
+		else if ( alv_address == ADD_DISTORTION_BOOST )
+		begin
+			distortion_boost_ <= avl_readdata;
+		end
+		else if ( alv_address == ADD_OUTPUT )
+		begin
+			if ( ! wrfull_input )
+			begin
+				wrenabled <= 'b1;
+				status <= status & 5'b01111;
+			end	
+			else
+			begin
+				status <= status | 5'b10000;
+			end
+		end
+	end
+	else if ( alv_write == 'b1 )
+	begin
+		if ( alv_address == ADD_STATUS) 
+		begin
+			alv_writedata <= status;
+		end 
+		else if ( alv_address == ADD_OUTPUT )
+		begin
+			if ( ! rdempty_output )
+			begin
+				rdenabled <= 'b1; 
+				status <= status & 5'b10111;
+			end
+			else
+			begin
+				status <= status | 5'b01000;
+			end
+		end
+	end
+		
+end
+
+always@(posedge clk500)
   begin
 	if (distortion_ready_to_read_ == 'b1)
 	begin
@@ -52,160 +127,51 @@ always@(posedge clk or negedge reset or posedge distortion_ready_to_read_)
     else if (reset == 'b0)
 	begin
 		stt <= S0;
-		select_effect_ <= 32'b0;
-		distortion_bypass_ <= 1'b0;
-		distortion_gain_ <= 32'b0;
-		distortion_boost_ <= 32'b0;
-		loc_ramclk <= 'b0; 
-		loc_ramread <= 'b0;
-		loc_ramwrite <= 'b0;
-		loc_ramaddress <= 5'b0;
-		input_ <= 32'b0;
+		rdclk_input <= 'b0;
+		rdenabled_input <= 'b0;
+		wdclk_output <= 'b0;
+		wrenabled_output <= 'b0;
 	 end 
 	 else
 	 begin
 		 case(stt)
 			S0:
 			begin
-				loc_ramaddress <= ADD_SE;            
-				loc_ramclk <= 'b0;           
-				loc_ramread <= 'b1;
-				loc_ramwrite <= 'b0;
-				stt <= S0A;
-			end
-			S0A:
-			begin
-				loc_ramclk <= 'b1;
-				select_effect_ <= loc_readdata;
-				loc_ramread <= 'b0;
-				if (select_effect_ & 2'b01)
-				begin
-					distortion_bypass_ = 'b00;
-					stt <= S0B;
-				end
-				else
-				begin
-					distortion_bypass_ = 'b00;
-					stt <= S0B;
-				end
-			end
-			S0B:
-			begin
-				loc_ramclk <= 'b0;  
-				loc_ramaddress <= ADD_DISTORRION_GAIN;            
-				loc_ramread <= 'b1;
-				loc_ramwrite <= 'b0;
-				stt <= S0C;
-			end
-			S0C:
-			begin
-				loc_ramclk <= 'b1;
-				distortion_gain_ <= loc_readdata;
-				loc_ramread <= 'b0;
-				stt <= S0D;
-			end
-			S0D:
-			begin
-				loc_ramaddress <= ADD_DISTORRION_BOOST;            
-				loc_ramclk <= 'b0;           
-				loc_ramread <= 'b1;
-				loc_ramwrite <= 'b0;
-				stt <= S0E;
-			end
-			S0E:
-			begin
-				loc_ramclk <= 'b1;
-				distortion_boost_ <= loc_readdata;
-				loc_ramread <= 'b0;
+				rdclk_input <= 'b0;
+				rdenabled_input <= 'b1;            
 				stt <= S1;
 			end
 			S1:
 			begin
-				loc_ramaddress <= ADD_INPUT;            
-				loc_ramclk <= 'b0;           
-				loc_ramread <= 'b1;
-				loc_ramwrite <= 'b0;
-				stt <= S1A;
-			end
-			S1A:
-			begin
-				loc_ramclk <= 'b1;
-				input_ <= loc_readdata;
-				loc_ramread <= 'b0;
+				rdclk_input <= 'b1;
+				rdenabled_input <= 'b0;            
 				stt <= S2;
 			end
 			S2:
-			begin           
-				loc_ramclk <= 'b0;           
-				loc_ramaddress <= ADD_READ_FINISH; 
-				loc_writedata <= 32'b0;
-				loc_ramread <= 'b0;
-				loc_ramwrite <= 'b1;
-				stt <= S2A;
-			end
-			S2A:
 			begin
-				loc_ramclk <= 'b1;
-				loc_ramwrite <= 'b0;
-				stt <= S3;
-			end
-			S3:
-			begin           
 				if ( ready_to_read_ > 0)
 				begin
-					loc_ramclk <= 'b0;           
-					loc_ramaddress <= ADD_OUTPUT; 
-					loc_writedata <= out_;
-					loc_ramread <= 'b0;
-					loc_ramwrite <= 'b1;
-					stt <= S3D;
+					wrclk_output <= 'b0;
+					wrenabled_output <= 'b1;            
+					stt <= S4;
 				end
 				else
 				begin
-					stt <= S3A;
+					stt <= S3;
 				end
 			end
-			S3A:
+			S3:
 			begin
-				stt <= S3B;
-			end
-			S3B:
-			begin
-				stt <= S3C;
-			end
-			S3C:
-			begin
-				stt <= S5;
-			end
-			S3D:
-			begin
-				loc_ramclk <= 'b1;
-				loc_ramwrite <= 'b0;
-				ready_to_read_ <= 'b0;
 				stt <= S4;
 			end
 			S4:
 			begin           
-				loc_ramclk <= 'b0;           
-				loc_ramaddress <= ADD_READY_TO_GET; 
-				loc_writedata <= 32'b1;
-				loc_ramread <= 'b0;
-				loc_ramwrite <= 'b1;
-				stt <= S4A;
+				wrclk_output <= 'b1;
+				wrenabled_output <= 'b0;            
+				stt <= S0;
 			end
-			S4A:
-			begin
-				loc_ramclk <= 'b1;
-				loc_ramwrite <= 'b0;
-				stt <= S5;
-			end
-			S5:
-			begin
-				stt <= S1;
-			end
-			
 		endcase
-    end
+    	end
   end
 
 endmodule

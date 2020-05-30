@@ -20,9 +20,13 @@ parameter ADD_READY_TO_GET			= 5'b00110;
 reg  [31:0] 	input_;
 reg  [31:0] 	select_effect_;
 
-parameter [5:0] S0=5'd0, S0A=5'd1, S0B=5'd2, S0C=5'd3, S0D=5'd4, S0E=5'd5, S0F=5'd6, S0G=5'd7, S0H=5'd8, S0I=5'd9, S1=5'd10, S1A=5'd11, S2=5'd12, S2A=5'd13, S3=5'd14, S3A=5'd15, S3B=5'd16, S3C=5'd17, S3D=5'd18, S4=5'd19, S4A=5'd20, S5=5'd21, S5A=5'd22;
+parameter [5:0] S0=5'd0, S0A=5'd1, S0B=5'd40, S1=5'd10, S1A=5'd11, S1B=5'd12, S2=5'd13, S2A=5'd45;
 
 reg [5:0] stt;
+
+reg [31:0] rascunho;
+
+reg [7:0] count;
 
 
 always@(posedge clk or negedge reset)
@@ -30,25 +34,65 @@ begin
    if (reset == 'b0)
 	begin
 		stt <= S0;
+		count <= 0;
 	end 
 	else
 	begin
 		 case(stt)
 			S0:
 			begin           
-				loc_ramclk <= 'b0;    
-				loc_writedata <= 32'd1100;				
-				loc_ramaddress <= ADD_READY_TO_GET; 
-				//loc_ramread <= 'b0;
-				loc_ramwrite <= 'b1;
+				loc_ramclk <= 'b0;    			
+				loc_ramaddress <= ADD_DISTORRION_BOOST; 
+				loc_ramwrite <= 'b0;
 				stt <= S0A;
 			end
 			S0A:
 			begin
 				loc_ramclk <= 'b1;
-				loc_ramwrite <= 'b0;
-				stt <= S0;
+				rascunho <= loc_readdata;
+				stt <= S0B;
 			end	
+			S0B:
+			begin
+				loc_ramclk <= 'b0;  
+				stt <= S1;
+			end 
+			S1:
+			begin           
+				loc_ramclk <= 'b0;    				
+				loc_ramaddress <= ADD_OUTPUT; 
+				loc_writedata <= rascunho;
+				loc_ramwrite <= 'b1;
+				stt <= S1A;
+			end
+			S1A:
+			begin
+				loc_ramclk <= 'b1;
+				stt <= S1B;
+			end	
+			S1B:
+			begin
+				count <= 8'd255;
+				loc_ramwrite <= 'b0;
+				stt <= S2;
+			end
+			S2:
+			begin
+				count <= count - 1;
+				stt <= S2A;
+			end
+			S2A:
+			begin
+				if (count == 0)
+				begin
+					stt <= S0;
+				end
+				else
+				begin
+					stt <= S2;
+				end
+			end
+			
 		endcase
     end
 end
