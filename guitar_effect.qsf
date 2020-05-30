@@ -60,19 +60,10 @@ set_global_assignment -name EDA_TEST_BENCH_NAME delay_tb -section_id eda_simulat
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id delay_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME delay_tb -section_id delay_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE delay_tb.v -section_id delay_tb
-set_global_assignment -name VERILOG_FILE ghrd.v
-set_global_assignment -name VERILOG_FILE delay.v
 set_global_assignment -name VERILOG_FILE guitar_effects.v
-set_global_assignment -name QIP_FILE lpm_add_ge.qip
-set_global_assignment -name QIP_FILE lpm_mult_ge.qip
-set_global_assignment -name QIP_FILE lpm_divide_ge.qip
 set_global_assignment -name VERILOG_FILE distortion.v
 set_global_assignment -name QIP_FILE altfp_exp_ge.qip
-set_global_assignment -name QIP_FILE altfp_conv_float_to_int_ge.qip
-set_global_assignment -name QIP_FILE altfp_conv_int_to_float_ge.qip
-set_global_assignment -name QIP_FILE ram_port_2_ge_tb.qip
-set_global_assignment -name QIP_FILE altfp_mult.qip
 set_global_assignment -name QIP_FILE altfp_mult_ge.qip
 set_global_assignment -name QIP_FILE altp_sub_ge.qip
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name QIP_FILE fifo_ge.qip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

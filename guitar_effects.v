@@ -5,7 +5,6 @@ module guitar_effect (
 	input		[31:0] 	avl_readdata,
 	output  reg	[31:0] 	avl_writedata,
 	output 	reg	[4:0]	avl_address,            
-	output 	reg	avl_clk,               
 	output	reg	avl_read,              
 	output  reg     avl_write
 );
@@ -13,14 +12,14 @@ module guitar_effect (
 reg  [31:0] 	status;
 reg  [31:0] 	distortion_gain_;
 reg  [31:0] 	distortion_boost_;
-reg  [31:0] 	input_;
+wire  [31:0] 	input_;
 reg  		ready_to_read_;
 wire [31:0] 	out_ ;
-reg   	        wrfull_input, wrfull_output;
-reg		rdempty_input, rdempty_outpout;	
-reg		rdreq_input, wrreq_output;
+wire   	        wrfull_input, wrfull_output;
+wire		rdempty_input, rdempty_outpout;	
 reg 		rdclk_input, rdenabled_input;
-reg		wrclk_output, wrenabled_output;
+reg			wrclk_output, wrenabled_output;
+reg			wrenabled, rdenabled;
 
 fifo_ge	fifo_ge_input (
 	.data ( avl_writedata ),
@@ -36,7 +35,7 @@ fifo_ge	fifo_ge_input (
 fifo_ge	fifo_ge_output (
 	.data ( out_ ),
 	.rdclk ( clk ),
-	.rdreq ( avl_output ),
+	.rdreq ( rdenabled ),
 	.wrclk ( wrclk_output ),
 	.wrreq ( wrenabled_output ),
 	.q ( avl_readdata ),
@@ -71,8 +70,8 @@ always@(negedge clk or posedge avl_read or posedge avl_write)
 begin
 	if ( clk == 'b0 )
 	begin
-		wrenabled_output <= 'b0;
-		rdenabled_input <= 'b0;
+		wrenabled <= 'b0;
+		rdenabled <= 'b0;
 	end
 	else if ( avl_read == 'b1 )
 	begin
@@ -88,7 +87,7 @@ begin
 		begin
 			if ( ! wrfull_input )
 			begin
-				wrenabled_output <= 'b1;
+				wrenabled <= 'b1;
 				status <= status & 5'b01111;
 			end	
 			else
@@ -107,7 +106,7 @@ begin
 		begin
 			if ( ! rdempty_output )
 			begin
-				rdenabled_input <= 'b1; 
+				rdenabled <= 'b1; 
 				status <= status & 5'b10111;
 			end
 			else
