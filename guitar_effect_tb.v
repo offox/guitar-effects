@@ -56,6 +56,18 @@ begin
 	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
 	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
 	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd30; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd40; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd50; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
 	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd10; #1
 	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
 	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
@@ -64,10 +76,199 @@ begin
 	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
 	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
 	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd30; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd40; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd50; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
 	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd10; #1
 	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
 	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
 	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd20; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd30; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd40; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd50; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd10; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd20; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd30; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd40; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd50; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd10; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd20; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd30; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd40; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd50; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd10; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd20; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd30; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd40; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd50; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd10; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd20; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd30; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd40; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd50; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd10; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd20; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd30; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd40; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd50; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd10; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd20; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd30; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd40; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd50; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd10; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd20; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd30; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd40; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd50; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd10; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd20; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd30; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd40; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b0;  Clk_500 = 1'b0; address = 5'b00101; write = 'b1; writedata = 32'd50; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	Reset = 1'b1; Clk = 1'b1;  Clk_500 = 1'b1; write = 'b0; #1
+	$display("Reset = %x, Clk = %x, Clk_500 = %x, writedata = %x, readdata = %x, address = %x, read = %x, write %x ", Reset, Clk, Clk_500, writedata, readdata, address, read, write  );
+	
 end
 
 

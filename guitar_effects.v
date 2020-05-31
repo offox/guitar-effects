@@ -25,7 +25,7 @@ wire [31:0] readdata = avl_readdata;
 
 fifo_ge	fifo_ge_input (
 	.data ( avl_writedata ),
-	.rdclk ( rdclk_input ),
+	.rdclk ( clk_500 ),
 	.rdreq ( rdenabled_input ),
 	.wrclk ( clk ),
 	.wrreq ( wrenabled ),
@@ -126,7 +126,7 @@ begin
 		
 end
 
-always@(posedge clk_500)
+always@(negedge clk_500 or negedge reset)
   begin
 	if (distortion_ready_to_read_ == 'b1)
 	begin
@@ -147,7 +147,6 @@ always@(posedge clk_500)
 			begin
 				if ( ! rdempty_input )
 				begin
-					rdclk_input <= 'b0;
 					rdenabled_input <= 'b1;            
 					stt <= S2;
 				end
@@ -162,7 +161,6 @@ always@(posedge clk_500)
 			end
 			S2:
 			begin
-				rdclk_input <= 'b1;
 				rdenabled_input <= 'b0; 
 				stt <= S3;
 			end
@@ -170,7 +168,6 @@ always@(posedge clk_500)
 			begin
 				if ( ready_to_read_ > 0)
 				begin
-					wrclk_output <= 'b0;
 					wrenabled_output <= 'b1;            
 					stt <= S5;
 				end
@@ -185,7 +182,6 @@ always@(posedge clk_500)
 			end
 			S5:
 			begin           
-				wrclk_output <= 'b1;
 				wrenabled_output <= 'b0;            
 				stt <= S0;
 			end
