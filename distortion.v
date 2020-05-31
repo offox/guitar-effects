@@ -87,7 +87,7 @@ begin
 		
 		if (calculate_first_value == 'b1)
 		begin
-		if (count == 6'd47)
+		if (count == 6'd41)
 			begin
 				calculate_first_value <= 'b0;
 				// out <= result;
@@ -101,7 +101,7 @@ begin
 		end
 		else
 		begin
-			if (count == 6'd8)
+			if (count == 6'd3)
 			begin
 				// out <= result;
 				ready_to_read <= 'b1;
