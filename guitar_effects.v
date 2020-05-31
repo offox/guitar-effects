@@ -75,14 +75,13 @@ begin
 	if ( clk == 'b0 )
 	begin
 		wrenabled <= 'b0;
-		rdenabled <= 'b0;
+		rdenabled <= 'b0;	
 	end
 	if ( reset == 'b0 )
 	begin
 		status <= 5'b00000;
 		distortion_gain_ <= 'b0;
 		distortion_boost_ <= 'b0;
-		reset_by_command <= 'b1;
 	end
 	else if ( avl_write == 'b1 )
 	begin
@@ -138,7 +137,7 @@ begin
 		
 end
 
-always@(negedge clk_500 or negedge reset or negedge reset_by_command)
+always@(negedge clk_500 or negedge reset or negedge reset_by_command or posedge distortion_ready_to_read_)
   begin
 	if (distortion_ready_to_read_ == 'b1)
 	begin
@@ -151,17 +150,16 @@ always@(negedge clk_500 or negedge reset or negedge reset_by_command)
 		rdenabled_input <= 'b0;
 		wrenabled_output <= 'b0;
 		reset_ <= 'b0;
-	 end 
-	 else if (reset_by_command == 'b0 && reset_ == 'b0)
-	 begin
-		reset_ <= 'b1;
-		stt <= S0;
-	 end 
+	 end  
 	 else
 	 begin
-		 reset_ <= 'b0;
-		 reset_by_command <= 'b1;
 		 case(stt)
+			SSTOP:
+			if (reset_by_command == 'b0)
+			begin
+				reset_ <= 'b1;
+				stt <= S0;
+			end
 			S0:
 			begin
 				reset_ <= 'b0;
