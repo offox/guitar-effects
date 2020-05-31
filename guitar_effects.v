@@ -18,8 +18,7 @@ reg  			ready_to_read_;
 wire [31:0] 	out_ ;
 wire   	        wrfull_input, wrfull_output;
 wire			rdempty_input, rdempty_output;	
-reg 		rdenabled_input;
-reg			wrclk_output, wrenabled_output;
+reg 		rdenabled_input, wrenabled_output;
 reg			wrenabled, rdenabled;
 reg			reset_by_command;
 reg			reset_;
@@ -42,7 +41,7 @@ fifo_ge	fifo_ge_output (
 	.data ( out_ ),
 	.rdclk ( clk ),
 	.rdreq ( rdenabled ),
-	.wrclk ( wrclk_output ),
+	.wrclk ( clk_500 ),
 	.wrreq ( wrenabled_output ),
 	.q ( readdata ),
 	.rdempty ( rdempty_output ),
@@ -149,8 +148,8 @@ always@(negedge clk_500 or negedge reset or negedge reset_by_command)
     else if (reset == 'b0)
 	begin
 		stt <= SSTOP;
+		ready_to_read_ = 'b0;
 		rdenabled_input <= 'b0;
-		wrclk_output <= 'b0;
 		wrenabled_output <= 'b0;
 		reset_ <= 'b0;
 	 end 
