@@ -71,7 +71,7 @@ begin
 	begin
 		if (bypass == 'b1)                  
 		begin
-			//out <= input_ ;
+			out <= input_ ;
 		end
 		else
 		begin

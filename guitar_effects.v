@@ -9,6 +9,7 @@ module guitar_effect (
 	input           avl_write
 );
 
+reg				distortion_bypass_;
 reg  [31:0] 	status;
 reg  [31:0] 	distortion_gain_;
 reg  [31:0] 	distortion_boost_;
@@ -16,10 +17,13 @@ wire  [31:0] 	input_;
 reg  			ready_to_read_;
 wire [31:0] 	out_ ;
 wire   	        wrfull_input, wrfull_output;
-wire		rdempty_input, rdempty_output;	
-reg 		rdclk_input, rdenabled_input;
+wire			rdempty_input, rdempty_output;	
+reg 		rdenabled_input;
 reg			wrclk_output, wrenabled_output;
 reg			wrenabled, rdenabled;
+reg			reset_by_command;
+reg			reset_;
+
 
 wire [31:0] readdata = avl_readdata;
 
@@ -46,7 +50,7 @@ fifo_ge	fifo_ge_output (
 	);
 
 distortion distortion_inst(
-	.aclr( ! reset ),
+	.aclr( reset_ ),
 	.clk( clk ),
 	.bypass( distortion_bypass_ ),
 	.distortion_gain( distortion_gain_ ),
@@ -56,14 +60,15 @@ distortion distortion_inst(
 	.out( out_ )
 );
 
-
+parameter ADD_DISTORTION_BYPASS			= 5'b000000;
 parameter ADD_DISTORTION_GAIN			= 5'b00001;
 parameter ADD_DISTORTION_BOOST			= 5'b00010;
 parameter ADD_STATUS				= 5'b00011;
 parameter ADD_OUTPUT				= 5'b00101;
 parameter ADD_INPUT				= 5'b00110;
+parameter ADD_RESET				= 5'b00111;
 
-parameter [5:0] S0=5'd0, S1=5'd1, S2=5'd2, S3=5'd3, S4=5'd4, S5=5'd5;
+parameter [5:0] SSTOP=5'd0, S0=5'd1, S1=5'd2, S2=5'd3, S3=5'd4, S4=5'd5, S5=5'd6;
 
 reg [3:0] stt;
 
@@ -80,16 +85,25 @@ begin
 		status <= 5'b00000;
 		distortion_gain_ <= 'b0;
 		distortion_boost_ <= 'b0;
+		reset_by_command <= 'b1;
 	end
 	else if ( avl_write == 'b1 )
 	begin
-		if ( avl_address == ADD_DISTORTION_GAIN ) 
+		if ( avl_address == ADD_DISTORTION_BYPASS ) 
+		begin
+			distortion_bypass_ <= avl_writedata;
+		end 
+		else if ( avl_address == ADD_DISTORTION_GAIN ) 
 		begin
 			distortion_gain_ <= avl_writedata;
 		end 
 		else if ( avl_address == ADD_DISTORTION_BOOST )
 		begin
 			distortion_boost_ <= avl_writedata;
+		end
+		else if ( avl_address == ADD_RESET )
+		begin
+			reset_by_command <= 'b0;	
 		end
 		else if ( avl_address == ADD_OUTPUT )
 		begin
@@ -126,7 +140,7 @@ begin
 		
 end
 
-always@(negedge clk_500 or negedge reset)
+always@(negedge clk_500 or negedge reset or negedge reset_by_command)
   begin
 	if (distortion_ready_to_read_ == 'b1)
 	begin
@@ -134,17 +148,25 @@ always@(negedge clk_500 or negedge reset)
 	end
     else if (reset == 'b0)
 	begin
-		stt <= S0;
-		rdclk_input <= 'b0;
+		stt <= SSTOP;
 		rdenabled_input <= 'b0;
 		wrclk_output <= 'b0;
 		wrenabled_output <= 'b0;
+		reset_ <= 'b0;
+	 end 
+	 else if (reset_by_command == 'b0 && reset_ == 'b0)
+	 begin
+		reset_ <= 'b1;
+		stt <= S0;
 	 end 
 	 else
 	 begin
+		 reset_ <= 'b0;
+		 reset_by_command <= 'b1;
 		 case(stt)
 			S0:
 			begin
+				reset_ <= 'b0;
 				if ( ! rdempty_input )
 				begin
 					rdenabled_input <= 'b1;            

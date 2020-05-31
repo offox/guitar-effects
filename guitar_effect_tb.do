@@ -9,5 +9,8 @@ add wave -position insertpoint sim:/guitar_effect_tb/guitar_effect_inst/distorti
 add wave -position insertpoint sim:/guitar_effect_tb/guitar_effect_inst/distortion_inst/result
 add wave -position insertpoint sim:/guitar_effect_tb/guitar_effect_inst/distortion_inst/count
 add wave -position insertpoint sim:/guitar_effect_tb/guitar_effect_inst/distortion_inst/calculate_first_value
+add wave -position insertpoint sim:/guitar_effect_tb/guitar_effect_inst/distortion_inst/input_
+add wave -position insertpoint sim:/guitar_effect_tb/guitar_effect_inst/distortion_inst/out
+
 run -all
 
