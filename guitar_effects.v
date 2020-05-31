@@ -22,9 +22,7 @@ reg 		rdenabled_input, wrenabled_output;
 reg			wrenabled, rdenabled;
 reg			reset_by_command;
 reg			reset_;
-
-
-wire [31:0] readdata = avl_readdata;
+wire	    [31:0] readdata;
 
 fifo_ge	fifo_ge_input (
 	.data ( avl_writedata ),
@@ -104,16 +102,16 @@ begin
 		begin
 			reset_by_command <= 'b0;	
 		end
-		else if ( avl_address == ADD_OUTPUT )
+		else if ( avl_address == ADD_INPUT )
 		begin
 			if ( ! wrfull_input )
 			begin
 				wrenabled <= 'b1;
-				status <= status & 5'b01111;
+				status <= status | 5'b10000;
 			end	
 			else
 			begin
-				status <= status | 5'b10000;
+				status <= status & 5'b01111;
 			end
 		end
 	end
@@ -128,11 +126,12 @@ begin
 			if ( ! rdempty_output )
 			begin
 				rdenabled <= 'b1; 
-				status <= status & 5'b10111;
+				avl_readdata <= readdata;
+				status <= status | 5'b01000;
 			end
 			else
 			begin
-				status <= status | 5'b01000;
+				status <= status & 5'b10111;
 			end
 		end
 	end
@@ -145,7 +144,7 @@ always@(negedge clk_500 or negedge reset or negedge reset_by_command)
 	begin
 		ready_to_read_ = 'b1;
 	end
-    else if (reset == 'b0)
+	if (reset == 'b0)
 	begin
 		stt <= SSTOP;
 		ready_to_read_ = 'b0;

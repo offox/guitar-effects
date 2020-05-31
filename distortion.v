@@ -90,7 +90,7 @@ begin
 		if (count == 6'd41)
 			begin
 				calculate_first_value <= 'b0;
-				// out <= result;
+				out <= result;
 				ready_to_read <= 'b1;
 				count <= 6'b0;
 			end
@@ -103,7 +103,7 @@ begin
 		begin
 			if (count == 6'd3)
 			begin
-				// out <= result;
+				out <= result;
 				ready_to_read <= 'b1;
 				count <= 6'b0;
 			end
